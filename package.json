@@ -1,0 +1,23 @@
+{
+  "name": "sgf-modulo5-ponto-jornada",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SGF - Modulo 5: Controle de Ponto e Jornada de Operarios (Offline-First, 3FN, CLT Art. 66, Portaria MTP 671/2021)",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n API,WEB -c cyan,magenta \"npm run dev --workspace backend\" \"npm run dev --workspace frontend\"",
+    "test": "npm run test --workspace backend",
+    "build": "npm run build --workspace backend && npm run build --workspace frontend",
+    "start": "npm run start --workspace backend",
+    "db:reset": "npm run db:reset --workspace backend"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.7"
+  }
+}

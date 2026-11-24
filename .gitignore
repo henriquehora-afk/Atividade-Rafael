@@ -1,0 +1,16 @@
+node_modules/
+dist/
+coverage/
+*.log
+
+# Banco SQLite local (recriado pelo seed: npm run db:reset)
+backend/data/
+*.db
+*.db-wal
+*.db-shm
+
+.env
+.env.*
+.claude/settings.local.json
+.DS_Store
+Thumbs.db
