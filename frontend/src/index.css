@@ -1,0 +1,56 @@
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/space-grotesk';
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk Variable', 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+
+  /* Paleta de engenharia do SGF */
+  --color-sgf-escuro: #0f172a;
+  --color-sgf-primaria: #0284c7;
+  --color-sgf-destaque: #38bdf8;
+  --color-sgf-fundo: #f8fafc;
+}
+
+@layer base {
+  html,
+  body {
+    background: var(--color-sgf-fundo);
+    color: var(--color-sgf-escuro);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-sgf-destaque);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .campo {
+    @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm transition placeholder:text-slate-400 focus:border-sgf-primaria focus:ring-2 focus:ring-sgf-destaque/40 focus:outline-none disabled:bg-slate-100;
+  }
+  .rotulo {
+    @apply mb-1 block text-xs font-semibold tracking-wide text-slate-600 uppercase;
+  }
+  .num {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@keyframes varredura {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+.animar-varredura {
+  animation: varredura 2.2s linear infinite;
+}
